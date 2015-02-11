@@ -130,7 +130,7 @@ window.onload = function() {
 
     function update() {
         
-        boolean QuestionOneAnswered = false;
+        var QuestionOneAnswered = false;
         cursors = game.input.keyboard.createCursorKeys();
         if(cursors.1.isPressed && QuestionOneAnswered = false){
             love = love + 1;
