@@ -25,7 +25,7 @@
         game.load.image('girlHappy3', 'assets/girlHappy3.png');
         game.load.image('girlHappy2', 'assets/girlHappy2.png');
         game.load.image('girlHappy1', 'assets/girlHappy1.png');
-        game.load.image('girlNeutral', 'assets/girlNeutral.png');
+        game.load.image('girlNeutral', 'assets/girlneutral.png');
         game.load.image('girlSad1', 'assets/girlSad1.png');
         game.load.image('girlSad2', 'assets/girlSad2.png');
         game.load.image('girlSad3', 'assets/girlSad3.png');
