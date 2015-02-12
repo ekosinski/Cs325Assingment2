@@ -1,14 +1,3 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>Nerdy Dating Sim</title>
-        <script src="phaser.js"></script>
-        <script src="js/main2.js"></script>
-    </head>
-    <body>
-
-    <script type="text/javascript">
 
     window.onload = function() {
 
@@ -313,7 +302,4 @@
         
     };
 
-    </script>
-
-    </body>
-</html>
+   
