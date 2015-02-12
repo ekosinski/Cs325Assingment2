@@ -33,6 +33,8 @@
         game.load.image('girlSad1', 'assets/girlSad1.png');
         game.load.image('girlSad2', 'assets/girlSad2.png');
         game.load.image('girlSad3', 'assets/girlSad3.png');
+        game.load.audio('groan', 'assets/groan.mp3');
+        game.load.audio('ooh','assets/ooh.mp3');
 
         //Load questions and answers
         game.load.image('Q1','assets/Q1.png');
@@ -82,6 +84,9 @@
         A12.events.onInputDown.add(listenerA12(), this);
         A13.events.onInputDown.add(listenerA13(), this);
 
+        groan = game.add.audio('groan');
+        ooh = game.add.audio('ooh');
+
         var Q2;
         var Q3;
         var Q4;
@@ -98,6 +103,8 @@
         var A51;
         var A52;
         var A53;
+        var groan;
+        var ooh;
 
         //text = game.add.text(250, 300, '', { fill: '#ffffff' });
     }
@@ -196,32 +203,39 @@
         happiness++;
         setGirl(happiness);
         counter++;
+        ooh.play();
+
     }
     function listenerA12() {
         happiness--;
         setGirl(happiness);
         counter++;
+        groan.play();
     }
     function listenerA13() {
         happiness--;
         setGirl(happiness);
         counter++;
+        groan.play();
     }
     // listeners for Q2
     function listenerA21() {
         happiness--;
         setGirl(happiness);
         counter++;
+        groan.play();
     }
     function listenerA22() {
         happiness--;
         setGirl(happiness);
         counter++;
+        groan.play();
     }
     function listenerA23() {
         happiness++;
         setGirl(happiness);
         counter++;
+        ooh.play();
     }
 
     // listeners for Q3
@@ -229,48 +243,57 @@
         happiness--;
         setGirl(happiness);
         counter++;
+        groan.play();
     }
     function listenerA32() {
         happiness++;
         setGirl(happiness);
         counter++;
+        ooh.play();
     }
     function listenerA33() {
         happiness--;
         setGirl(happiness);
         counter++;
+        groan.play();
     }
     // listeners for Q4
     function listenerA41() {
         happiness--;
         setGirl(happiness);
         counter++;
+        groan.play();
     }
     function listenerA42() {
         happiness--;
         setGirl(happiness);
         counter++;
+        groan.play();
     }
     function listenerA43() {
         happiness++;
         setGirl(happiness);
         counter++;
+        ooh.play();
     }
     // listeners for Q5
     function listenerA51() {
         happiness--;
         setGirl(happiness);
         counter++;
+        groan.play();
     }
     function listenerA52() {
         happiness--;
         setGirl(happiness);
         counter++;
+        groan.play();
     }
     function listenerA53() {
         happiness++;
         setGirl(happiness);
         counter++;
+        ooh.play();
     }
 
     function setGirl(happiness) {
