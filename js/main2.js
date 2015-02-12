@@ -4,11 +4,18 @@
     "use strict";
 
     var game = new Phaser.Game( 800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update } );
-
-    var text;
-    var happiness = 0;
+         
+    var text1;
+    var text2;
     var counter = 0;
-
+    var happiness = 0;
+    //var bg;
+    //var girl;
+    //var Q;
+    //var A1;
+    //var A2;
+    //var A3;
+    
     function preload() {
 
     //Load the heart background
@@ -22,8 +29,6 @@
         game.load.image('girlSad1', 'assets/girlSad1.png');
         game.load.image('girlSad2', 'assets/girlSad2.png');
         game.load.image('girlSad3', 'assets/girlSad3.png');
-        game.load.audio('groan', 'assets/groan.mp3');
-        game.load.audio('ooh','assets/ooh.mp3');
 
         //Load questions and answers
         game.load.image('Q1','assets/Q1.png');
@@ -59,230 +64,178 @@
 
         var bg = game.add.sprite(0,0,'bg');
         var girl = game.add.sprite(game.world.centerX - 300, game.world.centerY - 275, 'girlNeutral');
-        var Q1 = game.add.sprite(game.world.centerX - 75, game.world.centerY - 275, 'Q1');
-        var A11 = game.add.sprite(game.world.centerX - 390, game.world.centerY + 75, 'A11');
-        var A12 = game.add.sprite(game.world.centerX - 125, game.world.centerY + 75, 'A12');
-        var A13 = game.add.sprite(game.world.centerX + 140, game.world.centerY + 75, 'A13');
+        var Q;
+        var A1;
+        var A2;
+        var A3;
         
-
-        A11.inputEnabled = true;
-        A12.inputEnabled = true;
-        A13.inputEnabled = true;
-
-        A11.events.onInputDown.add(listenerA11(), this);
-        A12.events.onInputDown.add(listenerA12(), this);
-        A13.events.onInputDown.add(listenerA13(), this);
-
-        groan = game.add.audio('groan');
-        ooh = game.add.audio('ooh');
-
-        var Q2;
-        var Q3;
-        var Q4;
-        var Q5;
-        var A21;
-        var A22;
-        var A23;
-        var A31;
-        var A32;
-        var A33
-        var A41;
-        var A42;
-        var A43
-        var A51;
-        var A52;
-        var A53;
-        var groan;
-        var ooh;
-
-        //text = game.add.text(250, 300, '', { fill: '#ffffff' });
+        text1 = game.add.text(100, 300, '', { fill: '#ffffff' });
+        text2 = game.add.text(500, 300, '', { fill: '#ffffff' });
     }
 
     
 
     function update() {
-        
-        if (counter == 0) {
+        //while (counter < 6) {
 
-        }
-        else if (counter == 1) {
-            Q1.destroy();
-            A11.destroy();
-            A12.destroy();
-            A13.destroy();
-            Q2 = game.add.sprite(game.world.centerX - 75, game.world.centerY - 275, 'Q2');
-            A21 = game.add.sprite(game.world.centerX - 390, game.world.centerY + 75, 'A21');
-            A22 = game.add.sprite(game.world.centerX - 125, game.world.centerY + 75, 'A22');
-            A23 = game.add.sprite(game.world.centerX + 140, game.world.centerY + 75, 'A23');
+            text1.text = "Happiness level is " + happiness + " !";
+            text2.text = "Question " + counter + " of 5!";
 
-            A21.inputEnabled = true;
-            A22.inputEnabled = true;
-            A23.inputEnabled = true;
+            if (counter == 0) {
+                var Q = game.add.sprite(game.world.centerX - 75, game.world.centerY - 275, 'Q1');
+                var A1 = game.add.sprite(game.world.centerX - 390, game.world.centerY + 75, 'A11');
+                var A2 = game.add.sprite(game.world.centerX - 125, game.world.centerY + 75, 'A12');
+                var A3 = game.add.sprite(game.world.centerX + 140, game.world.centerY + 75, 'A13');
+                A1.inputEnabled = true;
+                A2.inputEnabled = true;
+                A3.inputEnabled = true;
+                A1.events.onInputDown.add(listenerA11, this);
+                A2.events.onInputDown.add(listenerA12, this);
+                A3.events.onInputDown.add(listenerA13, this);
+            }
+            else if (counter == 1) {
+                var Q = game.add.sprite(game.world.centerX - 75, game.world.centerY - 275, 'Q2');
+                var A1 = game.add.sprite(game.world.centerX - 390, game.world.centerY + 75, 'A21');
+                var A2 = game.add.sprite(game.world.centerX - 125, game.world.centerY + 75, 'A22');
+                var A3 = game.add.sprite(game.world.centerX + 140, game.world.centerY + 75, 'A23');
+                A1.inputEnabled = true;
+                A2.inputEnabled = true;
+                A3.inputEnabled = true;
+                A1.events.onInputDown.add(listenerA21, this);
+                A2.events.onInputDown.add(listenerA22, this);
+                A3.events.onInputDown.add(listenerA23, this);
+            }
+            else if (counter == 2) {
+                var Q = game.add.sprite(game.world.centerX - 75, game.world.centerY - 275, 'Q3');
+                var A1 = game.add.sprite(game.world.centerX - 390, game.world.centerY + 75, 'A31');
+                var A2 = game.add.sprite(game.world.centerX - 125, game.world.centerY + 75, 'A32');
+                var A3 = game.add.sprite(game.world.centerX + 140, game.world.centerY + 75, 'A33');
+                A1.inputEnabled = true;
+                A2.inputEnabled = true;
+                A3.inputEnabled = true;
+                A1.events.onInputDown.add(listenerA31, this);
+                A2.events.onInputDown.add(listenerA32, this);
+                A3.events.onInputDown.add(listenerA33, this);
+            }
+            else if (counter == 3) {
+                var Q = game.add.sprite(game.world.centerX - 75, game.world.centerY - 275, 'Q4');
+                var A1 = game.add.sprite(game.world.centerX - 390, game.world.centerY + 75, 'A41');
+                var A2 = game.add.sprite(game.world.centerX - 125, game.world.centerY + 75, 'A42');
+                var A3 = game.add.sprite(game.world.centerX + 140, game.world.centerY + 75, 'A43');
+                A1.inputEnabled = true;
+                A2.inputEnabled = true;
+                A3.inputEnabled = true;
+                A1.events.onInputDown.add(listenerA41, this);
+                A2.events.onInputDown.add(listenerA42, this);
+                A3.events.onInputDown.add(listenerA43, this);
+            }
+            if (counter == 4) {
+                var Q = game.add.sprite(game.world.centerX - 75, game.world.centerY - 275, 'Q5');
+                var A1 = game.add.sprite(game.world.centerX - 390, game.world.centerY + 75, 'A51');
+                var A2 = game.add.sprite(game.world.centerX - 125, game.world.centerY + 75, 'A52');
+                var A3 = game.add.sprite(game.world.centerX + 140, game.world.centerY + 75, 'A53');
+                A1.inputEnabled = true;
+                A2.inputEnabled = true;
+                A3.inputEnabled = true;
+                A1.events.onInputDown.add(listenerA51, this);
+                A2.events.onInputDown.add(listenerA52, this);
+                A3.events.onInputDown.add(listenerA53, this);
+            }
+            else if (counter == 5) {
+                if (happiness >= 3) {
+                    game.add.sprite(game.world.centerX - 350, game.world.centerY - 250, 'Ask');
+                }
+            }
 
-            A21.events.onInputDown.add(listenerA21, this);
-            A22.events.onInputDown.add(listenerA22, this);
-            A23.events.onInputDown.add(listenerA23, this);
-        }
-        else if (counter == 2) {
-            Q2.destroy();
-            A21.destroy();
-            A22.destroy();
-            A23.destroy();
-            Q3 = game.add.sprite(game.world.centerX - 75, game.world.centerY - 275, 'Q3');
-            A31 = game.add.sprite(game.world.centerX - 390, game.world.centerY + 75, 'A31');
-            A32 = game.add.sprite(game.world.centerX - 125, game.world.centerY + 75, 'A32');
-            A33 = game.add.sprite(game.world.centerX + 140, game.world.centerY + 75, 'A33');
+            //counter++;
 
-            A31.inputEnabled = true;
-            A32.inputEnabled = true;
-            A33.inputEnabled = true;
-
-            A31.events.onInputDown.add(listenerA31, this);
-            A32.events.onInputDown.add(listenerA32, this);
-            A33.events.onInputDown.add(listenerA33, this);
-        }
-        else if (counter == 3) {
-            Q3.destroy();
-            A31.destroy();
-            A32.destroy();
-            A33.destroy;
-            Q4 = game.add.sprite(game.world.centerX - 75, game.world.centerY - 275, 'Q4');
-            A41 = game.add.sprite(game.world.centerX - 390, game.world.centerY + 75, 'A41');
-            A42 = game.add.sprite(game.world.centerX - 125, game.world.centerY + 75, 'A42');
-            A43 = game.add.sprite(game.world.centerX + 140, game.world.centerY + 75, 'A43');
-
-            A41.inputEnabled = true;
-            A42.inputEnabled = true;
-            A43.inputEnabled = true;
-
-            A41.events.onInputDown.add(listenerA41, this);
-            A42.events.onInputDown.add(listenerA42, this);
-            A43.events.onInputDown.add(listenerA43, this);
-        }
-        if (counter == 4) {
-            Q4.destroy();
-            A41.destroy();
-            A42.destroy();
-            A43.destroy;
-            Q5 = game.add.sprite(game.world.centerX - 75, game.world.centerY - 275, 'Q5');
-            A51 = game.add.sprite(game.world.centerX - 390, game.world.centerY + 75, 'A51');
-            A52 = game.add.sprite(game.world.centerX - 125, game.world.centerY + 75, 'A52');
-            A53 = game.add.sprite(game.world.centerX + 140, game.world.centerY + 75, 'A53');
-
-            A51.inputEnabled = true;
-            A52.inputEnabled = true;
-            A53.inputEnabled = true;
-
-            A51.events.onInputDown.add(listenerA51, this);
-            A52.events.onInputDown.add(listenerA52, this);
-            A53.events.onInputDown.add(listenerA53, this);
-        }
-        else if (counter == 5) {
-            Q5.destroy();
-            A51.destroy();
-            A52.destroy();
-            A53.destroy();
-            game.add.sprite(game.world.centerX - 350, game.world.centerY - 250, 'Ask');
-        }
+        //}
     
     }
 
     // listeners for Q1 
     function listenerA11() {
+        counter++;
         happiness++;
         setGirl(happiness);
-        counter++;
-        ooh.play();
-
     }
     function listenerA12() {
+        counter++;
         happiness--;
         setGirl(happiness);
-        counter++;
-        groan.play();
     }
     function listenerA13() {
+        counter++;
         happiness--;
         setGirl(happiness);
-        counter++;
-        groan.play();
     }
+
     // listeners for Q2
     function listenerA21() {
+        counter++;
         happiness--;
         setGirl(happiness);
-        counter++;
-        groan.play();
     }
     function listenerA22() {
+        counter++;
         happiness--;
         setGirl(happiness);
-        counter++;
-        groan.play();
     }
     function listenerA23() {
+        counter++;
         happiness++;
         setGirl(happiness);
-        counter++;
-        ooh.play();
     }
 
     // listeners for Q3
     function listenerA31() {
+        counter++;
         happiness--;
         setGirl(happiness);
-        counter++;
-        groan.play();
     }
     function listenerA32() {
+        counter++;
         happiness++;
         setGirl(happiness);
-        counter++;
-        ooh.play();
     }
     function listenerA33() {
+        counter++;
         happiness--;
         setGirl(happiness);
-        counter++;
-        groan.play();
     }
+
     // listeners for Q4
     function listenerA41() {
-        happiness--;
-        setGirl(happiness);
         counter++;
-        groan.play();
+        happiness++;
+        setGirl(happiness);
     }
     function listenerA42() {
+        counter++;
         happiness--;
         setGirl(happiness);
-        counter++;
-        groan.play();
     }
     function listenerA43() {
-        happiness++;
-        setGirl(happiness);
         counter++;
-        ooh.play();
+        happiness--;
+        setGirl(happiness);
     }
+
     // listeners for Q5
     function listenerA51() {
+        counter++;
         happiness--;
         setGirl(happiness);
-        counter++;
-        groan.play();
     }
     function listenerA52() {
+        counter++;
         happiness--;
         setGirl(happiness);
-        counter++;
-        groan.play();
     }
     function listenerA53() {
+        counter++;
         happiness++;
         setGirl(happiness);
-        counter++;
-        ooh.play();
     }
 
     function setGirl(happiness) {
@@ -295,11 +248,11 @@
         if (happiness <= -3) { girl = game.add.sprite(game.world.centerX - 300, game.world.centerY - 275, 'girlSad3'); }
     }
 
-    function killSprite(sprite) {
-        sprite.kill();
+    function destroySprite(sprite) {
+
+        sprite.destroy();
+
     }
 
         
     };
-
-   
